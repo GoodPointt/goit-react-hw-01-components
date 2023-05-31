@@ -1,29 +1,19 @@
-import data from '../statistics/data';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import css from 'components/statistics/Statistics.module.css';
 
-export const Statistics = () => {
+export const Statistics = ({ stats }) => {
   return (
-    <section style={{ textAlign: 'center' }} className="statistics">
-      <h2 className="title">Upload stats</h2>
-      <ul
-        style={{ display: 'flex', padding: '0', justifyContent: 'center' }}
-        className="stat-list"
-      >
-        {data.map(({ id, label, percentage }) => (
-          <li
-            key={id}
-            className="item"
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              padding: '10px',
-              alignItems: 'center',
-            }}
-          >
-            <span className="label">{label}</span>
-            <span style={{ fontSize: '30px' }} className="percentage">
-              {percentage}%
-            </span>
+    <section className={css.statistics}>
+      <h2 className={css.title}>Upload stats</h2>
+      <ul className={css.statlist}>
+        {stats.map(({ id, label, percentage }) => (
+          <li key={id} className={css.statItem}>
+            <div className={css.card}>
+              <div className={css.card2}>
+                <span className={css.label}>{label}</span>
+                <span className={css.percentage}>{percentage}%</span>
+              </div>
+            </div>
           </li>
         ))}
       </ul>
@@ -31,10 +21,6 @@ export const Statistics = () => {
   );
 };
 
-// const { id, label, percentage } = data;
-
 Statistics.propTypes = {
-  id: propTypes.string,
-  label: propTypes.string,
-  percentage: propTypes.number,
+  stats: PropTypes.array.isRequired,
 };

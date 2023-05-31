@@ -1,49 +1,35 @@
-import user from '../profile/user';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import css from './Profile.module.css';
 
-const { username, tag, location, avatar, stats } = user;
+export const Profile = ({ users }) => {
+  const { username, tag, location, avatar, stats } = users;
 
-export const Profile = () => {
   return (
-    <div
-      className="profile"
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: '#010101',
-        textAlign: 'center',
-      }}
-    >
-      <div className="description">
-        <img src={avatar} alt="User avatar" className="avatar" width="200" />
-        <p className="name">{username}</p>
-        <p className="tag">{tag}</p>
-        <p className="location">{location}</p>
+    <div className={css.profile}>
+      <div className={css.description}>
+        <img
+          src={avatar}
+          alt="User avatar"
+          className={css.avatar}
+          width="200"
+        />
+        <p className={css.name}>{username}</p>
+        <p className={css.tag}>{tag}</p>
+        <p className={css.location}>{location}</p>
       </div>
 
-      <ul
-        className="stats"
-        style={{
-          listStyle: 'none',
-          display: 'flex',
-          gap: '10px',
-          margin: '0',
-          padding: '0',
-        }}
-      >
-        <li style={{ display: 'flex', flexDirection: 'column' }}>
-          <span className="label">Followers</span>
-          <span className="quantity">{stats.followers}</span>
+      <ul className={css.statslist}>
+        <li className={css.statsitem}>
+          <span className={css.label}>Followers</span>
+          <span className={css.quantity}>{stats.followers}</span>
         </li>
-        <li style={{ display: 'flex', flexDirection: 'column' }}>
-          <span className="label">Views</span>
-          <span className="quantity">{stats.views}</span>
+        <li className={css.statsitem}>
+          <span className={css.label}>Views</span>
+          <span className={css.quantity}>{stats.views}</span>
         </li>
-        <li style={{ display: 'flex', flexDirection: 'column' }}>
-          <span className="label">Likes</span>
-          <span className="quantity">{stats.likes}</span>
+        <li className={css.statsitem}>
+          <span className={css.label}>Likes</span>
+          <span className={css.quantity}>{stats.likes}</span>
         </li>
       </ul>
     </div>
@@ -51,13 +37,5 @@ export const Profile = () => {
 };
 
 Profile.propTypes = {
-  avatar: propTypes.string,
-  username: propTypes.string,
-  tag: propTypes.string,
-  location: propTypes.string,
-  stats: propTypes.shape({
-    followers: propTypes.number,
-    views: propTypes.number,
-    likes: propTypes.number,
-  }),
+  users: PropTypes.object.isRequired,
 };
