@@ -1,7 +1,12 @@
 import { Statistics } from 'components/statistics/Statistics';
 import { Profile } from 'components/profile/Profile';
+import { FriendList } from 'components/friendsList/FriendList';
+import { TransactionsHistory } from 'components/transactionHistory/TransactionsHistory';
+
+import transactions from 'components/transactionHistory/transactions';
 import user from 'components/profile/user';
 import data from 'components/statistics/data';
+import friends from 'components/friendsList/friends';
 
 export const App = () => {
   return (
@@ -18,7 +23,9 @@ export const App = () => {
       }}
     >
       <Profile users={user} />
-      <Statistics stats={data} />
+      <Statistics title="Upload stats" stats={data} />
+      <FriendList friends={friends} />
+      <TransactionsHistory items={transactions} />
     </div>
   );
 };
