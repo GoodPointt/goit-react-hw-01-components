@@ -1,3 +1,5 @@
+import PropTypes, { object } from 'prop-types';
+
 import { StyledTableRow } from 'components/transactionHistory/TransitionHistory.styled';
 
 export const TransactionsHistory = ({ items }) => {
@@ -24,4 +26,8 @@ export const TransactionsHistory = ({ items }) => {
       </tbody>
     </table>
   );
+};
+
+TransactionsHistory.propType = {
+  items: PropTypes.arrayOf(object).isRequired,
 };
