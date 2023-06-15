@@ -23,7 +23,7 @@ export const App = () => {
       }}
     >
       <Profile users={user} />
-      <Statistics title="Upload stats" stats={data} />
+      <Statistics title="Conditional rendering" stats={data} />
       <FriendList friends={friends} />
       <TransactionsHistory items={transactions} />
     </div>
