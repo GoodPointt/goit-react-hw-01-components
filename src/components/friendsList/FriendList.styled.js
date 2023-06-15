@@ -18,8 +18,9 @@ export const FriendsItem = styled.li`
 `;
 
 export const FriendStatus = styled.span`
+  display: block;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: ${({ status }) => (status === 'true' ? 'green' : 'red')};
+  background-color: ${({ status }) => (status ? 'green' : 'red')};
 `;
