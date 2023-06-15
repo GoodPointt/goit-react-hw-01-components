@@ -22,5 +22,5 @@ export const FriendStatus = styled.span`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: ${({ status }) => (status ? 'green' : 'red')};
+  background-color: ${({ status }) => (status === 'true' ? 'green' : 'red')};
 `;
